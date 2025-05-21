@@ -118,8 +118,23 @@ body {
   width: 450px;
   min-height: 400px;
   margin: 20px auto;
-  padding: 10px;
+  padding: 40px 20px;
   background-color: transparent;
+  font-size: 26px;
+  font-weight: bold;
+  border: 6px solid #edcd3e;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0px 0px 20px 5px rgb(0 0 0 / 44%);
+}
+.leader-board div {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #eee;
+  border-radius: 6px;
+  padding: 10px;
+  position: relative;
 }
 .flipped,
 .done {
@@ -137,7 +152,11 @@ body {
   height: 200px;
   width: 400px;
   border-radius: 6px;
-  background-image: linear-gradient(to right bottom, hsl(207deg 90% 54% / 95%), blue);
+  background-image: linear-gradient(
+    to right bottom,
+    hsl(207deg 90% 54% / 95%),
+    blue
+  );
   color: white;
   font-size: 30px;
   display: flex;

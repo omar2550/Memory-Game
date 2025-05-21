@@ -57,6 +57,8 @@ blocks.forEach((e) => {
   });
 });
 
+leaderBoard();
+
 function flipBlock(block) {
   block.classList.add("flipped");
 
@@ -151,30 +153,28 @@ function timer() {
   }, duration);
 }
 
-// function leaderBoard() {
-//   let leader_board = document.querySelector(".leader-board");
-//   let trieArray = trie.filter( e => e === e );
-//   for (let i = 0; i < players.length; i++) {
-//   let member = document.createElement("div");
-//   let tries = document.createElement("span");
+function leaderBoard() {
+  let leader_board = document.querySelector(".leader-board");
+  let trieArray = JSON.parse(localStorage.getItem("tries"));
 
-//   member.appendChild(
-//     document.createTextNode(players[i])
-//   );
+  for (let i = 0; i < players.length; i++) {
+    let member = document.createElement("div");
+    let tries = document.createElement("span");
 
-//   tries.appendChild(document.createTextNode(trie[i]));
-//   member.appendChild(tries);
+    member.appendChild(document.createTextNode(`${players[i]}: `));
 
-//   leader_board.appendChild(member);
-    
-//   }
-//   let leaderSpan = document.querySelectorAll(".leader-board div span");
+    tries.appendChild(document.createTextNode(trie[i]));
+    member.appendChild(tries);
 
-//   for (let i = 0; i < leaderSpan.length; i++) {
+    leader_board.appendChild(member);
+  }
+  let leaderSpan = document.querySelectorAll(".leader-board div span");
 
-//     leaderSpan[trieArray.indexOf(`${Math.min(...trieArray)}`)].parentElement.style.order = `${i}`
+  for (let i = 0; i < leaderSpan.length; i++) {
+    leaderSpan[
+      trieArray.indexOf(`${Math.min(...trieArray)}`)
+    ].parentElement.style.order = `${i}`;
 
-//     trieArray[trieArray.indexOf(`${Math.min(...trieArray)}`)] = 9999;
-
-//   }
-// }
+    trieArray[trieArray.indexOf(`${Math.min(...trieArray)}`)] = 9999;
+  }
+}
